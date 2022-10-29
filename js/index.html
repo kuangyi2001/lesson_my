@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>代码设计模式之代理模式</h1>
+    <script>
+        // document.write("况逸");
+        //对象字面量 描述功能 表现力
+        let ky={
+            name:'况逸',
+            age:'22',
+            hometown:'宜春',
+            isSingle:true,
+            isRich:false,
+            isWorking:false,
+            isStudenting:true,
+            sendFlower(o){
+                    o.reciveFlower(this)
+            }
+        }
+        let xm={
+            xq:50,
+            name:'小美',
+            age:18,
+            hometown:'赣州',
+            room:'201',
+            reciveFlower(o){
+                    console.log(`${this.name}收到了${o.name}的花`);
+                    if(this.xq>=90){
+                        console.log('成功');}
+                        else{
+                            console.log("失败");
+                        }
+                    
+            }
+        }
+let xh={
+    name:'小红',
+    room:'201',
+    home:"宜春",
+    //接口 当不同的对象有相同的方法时，可以互换使用
+    reciveFlower(o){
+// xm.reciveFlower(o)
+setTimeout(function()
+{
+    xm.xq=95;
+    xm.reciveFlower(o)
+},10000)
+    }
+}
+ky.sendFlower(xh)
+    </script>
+</body>
+</html>
