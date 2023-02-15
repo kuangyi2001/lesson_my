@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const users=['CookLiu520', 'WEDISON123','kuangyi2001'];
+        // url(`https://api.github.com/users/shunwuyu/${user}`)
+        // fetch(`https://api.github.com/users/shunwuyu/${user}`)
+        // 并行
+        // promise.all全部运行完 promise.race 一个运行完就行
+        async function getDate(){
+            const promise=users.map(user=>fetch(`https://api.github.com/users/shunwuyu/${user}`)
+            .then(r=>r.json()))
+            console.log(promise);
+        }
+        const peopl= getDate(users);
+        people.then(data=>{
+            console.log(data);
+        })
+    </script>
+</body>
+</html>
